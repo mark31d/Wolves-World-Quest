@@ -431,7 +431,7 @@ const QuizScreen = ({ navigation }) => {
       if (quizId) {
           loadQuestion();
       }
-  }, [quizId]);//component
+  }, [quizId]);//components
   const startQuiz = (selectedMode) => {
     setMode(selectedMode);
     setIsTimerActive(selectedMode === 'timed');
