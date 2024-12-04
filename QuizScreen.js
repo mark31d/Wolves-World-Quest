@@ -420,7 +420,7 @@ const QuizScreen = ({ navigation }) => {
               progressPercentage: Math.min((finalScore / progressData[quizIndex].maxScore) * 100, 100),
             };
       
-            console.log('Updated Progress:', progressData); // Лог для проверки обновлений
+            console.log('Updated Progress:', progressData); 
             await AsyncStorage.setItem('quizProgress', JSON.stringify(progressData));
           }
         } catch (error) {
@@ -431,7 +431,7 @@ const QuizScreen = ({ navigation }) => {
       if (quizId) {
           loadQuestion();
       }
-  }, [quizId]);//components
+  }, [quizId]);
   const startQuiz = (selectedMode) => {
     setMode(selectedMode);
     setIsTimerActive(selectedMode === 'timed');
@@ -443,7 +443,7 @@ const QuizScreen = ({ navigation }) => {
 const handleTimeUp = async () => {
   const finalScore = quizId === 2 ? calculateMatchingScore() : score;
   setScore(finalScore);
-  await saveScore(finalScore); // Сохраняем прогресс
+  await saveScore(finalScore); 
   setQuizFinished(true);
 };
 
@@ -465,11 +465,11 @@ const calculateMatchingScore = () => {
     const loadQuestion = () => {
       const currentQuiz = quizzes[quizId];
     
-      // Завершаем квиз, если вопросы закончились
+     
       if (!currentQuiz || questionIndex >= currentQuiz.length) {
         const finalScore = quizId === 2 ? calculateMatchingScore() : score;
-        saveScore(finalScore); // Сохраняем финальный прогресс
-        setQuizFinished(true); // Завершаем квиз
+        saveScore(finalScore);
+        setQuizFinished(true); 
         return;
       }
     
@@ -524,14 +524,14 @@ const calculateMatchingScore = () => {
   const submitAnswer = async () => {
     let finalScore = score;
   
-    // Рассчитываем финальный результат для Matching
+   
     matchedItems.forEach((item, index) => {
       if (item && item.text === currentQuestion.items[index].text) {
-        finalScore += 10; // Добавляем очки за правильный ответ
+        finalScore += 10; 
       }
     });
   
-    // Устанавливаем финальный счет и сохраняем его
+
     setScore(finalScore);
     await saveScore(finalScore);
     setQuizFinished(true);
@@ -636,7 +636,7 @@ const calculateMatchingScore = () => {
   };
     
     return (
-      <ImageBackground source={require('./back.jpg')} style={styles.backgroundImage}>
+      <ImageBackground source={require('./Background.png')} style={styles.backgroundImage}>
           <SafeAreaView  style={styles.container}>
               <TouchableOpacity style={styles.exitButton} onPress={navigation.goBack}>
                   <Text style={styles.exitButtonText}>✖️</Text>
@@ -715,14 +715,15 @@ const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
     resizeMode: 'cover',
+    backgroundColor: '#4A148C',  
   },
   okButton: {
-    backgroundColor: '#6C81A8',
+    backgroundColor: '#D1C4E9',  
     paddingVertical: 14,
     paddingHorizontal: 30,
     borderRadius: 12,
     alignItems: 'center',
-    borderColor: '#FFF',
+    borderColor: '#4A148C', 
     borderWidth: 2,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
@@ -731,7 +732,7 @@ const styles = StyleSheet.create({
     elevation: 6,
   },
   okButtonText: {
-    color: '#FFF',
+    color: '#4A148C', 
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
@@ -744,7 +745,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   submitButton: {
-    backgroundColor: '#6C81A8',
+    backgroundColor: '#F8BBD0',  
     paddingVertical: 18,
     paddingHorizontal: 40,
     borderRadius: 12,
@@ -755,14 +756,12 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.4,
     shadowRadius: 6,
     elevation: 6,
-    borderColor: '#FFF',
+    borderColor: '#4A148C',  
     borderWidth: 2,
-   
-    
   },
   submitButtonText: {
     fontSize: 20,
-    color: '#FFF',
+    color: '#4A148C',  
     fontWeight: '700',
     textAlign: 'center',
     letterSpacing: 1,
@@ -772,17 +771,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignContent: 'center',
     padding: 20,
-    
   },
   modeSelectionText: {
     alignSelf: 'center',
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#E8F0FF',
+    color: 'white', 
     marginBottom: 20,
   },
   modeButton: {
-    backgroundColor: '#6C81A8',
+    backgroundColor: '#4A148C', 
     paddingVertical: 18,
     paddingHorizontal: 40,
     borderRadius: 12,
@@ -792,31 +790,30 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.4,
     shadowRadius: 6,
     elevation: 6,
-    borderColor: '#FFF',
+    borderColor: '#F8BBD0',  
     borderWidth: 2,
   },
   modeButtonText: {
     fontSize: 20,
-    color: '#FFF',
+    color: '#FFFFFF',  
     fontWeight: '700',
     textAlign: 'center',
     letterSpacing: 1,
   },
   container: {
-    marginBottom:-50,
+    marginBottom: -50,
     flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+   
     paddingHorizontal: 30,
-    
   },
   exitButton: {
-    marginTop:30,
-    position: 'absolute', 
-    top: 20, 
-    left: 20, 
-    backgroundColor: '#6C81A8', 
+    marginTop: 30,
+    position: 'absolute',
+    top: 20,
+    left: 20,
+    backgroundColor: '#F8BBD0',  
     paddingHorizontal: 20,
     paddingVertical: 12,
     borderRadius: 20,
@@ -825,93 +822,78 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.4,
     shadowRadius: 5,
-    borderColor: '#FFF',
+    borderColor: '#4A148C',  
     borderWidth: 2,
     zIndex: 100,
-},
-
-  exitButtonQuizMode: {
-    alignSelf: 'center',
-    marginTop: -20,
-  },
-  exitButtonSelectionMode: {
-    alignSelf: 'center',
-    marginTop: 40,
   },
   exitButtonText: {
-    
     fontSize: 18,
     fontWeight: '700',
-    color: '#FFF',
+    color: 'white',  
     textAlign: 'center',
   },
   title: {
     fontSize: 30,
     fontWeight: '700',
-    color: '#FFF',
+    color: '#FFFFFF', 
     marginVertical: 20,
     textAlign: 'center',
   },
   score: {
     fontWeight: 'bold',
     fontSize: 22,
-    color: '#FFF',
+    color: '#FFFFFF',  
     marginBottom: 15,
   },
   finishedText: {
     fontSize: 23,
     fontWeight: 'bold',
-    color: '#E8F0FF',
+    color: '#4A148C',  
     marginTop: 120,
   },
   timer: {
     fontWeight: 'bold',
     fontSize: 20,
-    color: '#E8F0FF',
+    color: '#4A148C',  
     marginTop: 100,
   },
   questionContainer: {
-    backgroundColor: '#6C81A8', 
-    paddingVertical: 25, 
-    paddingHorizontal: 50, 
-    borderRadius: 15, 
-    marginVertical: 90, 
+    backgroundColor: '#4A148C',  
+    paddingVertical: 25,
+    paddingHorizontal: 50,
+    borderRadius: 15,
+    marginVertical: 90,
     alignSelf: 'center',
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 6 }, 
-    shadowOpacity: 0.5, 
-    shadowRadius: 8, 
-    elevation: 8, 
-    borderColor: '#FFF',
-    borderWidth: 2, 
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.5,
+    shadowRadius: 8,
+    elevation: 8,
+    borderColor: '#F8BBD0',  
+    borderWidth: 2,
     width: '95%',
-    minHeight: 220, 
-    
+    minHeight: 220,
   },
-
   questionText: {
-    fontSize: 24, 
-    color: '#FFF', 
-    marginBottom: 20, 
-    textAlign: 'center', 
-    fontWeight: '700', 
+    fontSize: 24,
+    color: '#FFFFFF',  
+    marginBottom: 20,
+    textAlign: 'center',
+    fontWeight: '700',
   },
-
   answerButton: {
-    
-    backgroundColor: '#384155',
+    backgroundColor: '#F8BBD0',  
     padding: 10,
     borderRadius: 30,
     marginBottom: 10,
   },
   answerButtonText: {
-    fontWeight:'bold',
+    fontWeight: 'bold',
     fontSize: 20,
-    color: '#FFF',
+    color: '#4A148C',
     textAlign: 'center',
   },
   matchingRowContainer: {
-    
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
@@ -927,23 +909,23 @@ const styles = StyleSheet.create({
     marginBottom: 85,
   },
   dropZonesContainer: {
-    flex: 1,justifyContent: 'space-between',
+    flex: 1,
+    justifyContent: 'space-between',
   },
   dropZone: {
     width: '75%',
     height: 105,
     borderWidth: 1.5,
-    borderColor: '#E8F0FF',
+    borderColor: '#F8BBD0',  
     borderRadius: 8,
     justifyContent: 'center',
     alignItems: 'center',
     marginVertical: 5,
-    
   },
   dropZoneText: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#FFF',
+    color: '#FFFFFF',  
     textAlign: 'center',
   },
   image: {
@@ -961,14 +943,14 @@ const styles = StyleSheet.create({
   },
   factText: {
     fontWeight: 'bold',
-    color: '#FFF',
+    color: '#FFFFFF',  
     fontSize: 22,
     textAlign: 'center',
     marginBottom: 20,
   },
   draggableTextContainer: {
     borderRadius: 8,
-    backgroundColor: '#384155',
+    backgroundColor: '#F8BBD0',
     width: 120,
     height: 60,
     justifyContent: 'center',
@@ -978,7 +960,7 @@ const styles = StyleSheet.create({
   draggableText: {
     fontSize: 14,
     fontWeight: 'bold',
-    color: '#FFF',
+    color: '#4A148C',  
     textAlign: 'center',
     flexWrap: 'wrap',
   },

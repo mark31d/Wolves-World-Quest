@@ -64,7 +64,7 @@ const ProgressBar = ({ route, navigation }) => {
   const circumference = 2 * Math.PI * radius;
 
   return (
-    <ImageBackground source={require('./back.jpg')} style={styles.backgroundImage}>
+    <ImageBackground source={require('./Background.png')} style={styles.backgroundImage}>
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.container}>
           <TouchableOpacity style={styles.exitButton} onPress={() => navigation.navigate('MainMenu')}>
@@ -75,29 +75,29 @@ const ProgressBar = ({ route, navigation }) => {
   {quizProgress.map((quiz, index) => (
     <View key={index} style={styles.progressContainer}>
       <Text style={styles.text}>
-        {index === 0 ? "Multiple Choice" : "Matching"}: {Math.round(quiz.progressPercentage)}% | Score: {quiz.score} / {index === 0 ? 300 : 150}
+        {index === 0 ? "Multiple Choice" : "Matching"}: {Math.round(quiz.progressPercentage)}% | Score:  {quiz.score} / {index === 0 ? 300 : 150}
       </Text>
       <Svg width={120} height={120} viewBox="0 0 120 120">
-        <Circle
-          cx="60"
-          cy="60"
-          r={radius}
-          stroke="#384155"
-          strokeWidth={strokeWidth}
-          fill="none"
-        />
-        <Circle
-          cx="60"
-          cy="60"
-          r={radius}
-          stroke="#E8F0FF"
-          strokeWidth={strokeWidth}
-          fill="none"
-          strokeDasharray={circumference}
-          strokeDashoffset={circumference * (1 - quiz.progressPercentage / 100)}
-          strokeLinecap="round"
-        />
-      </Svg>
+  <Circle
+    cx="60"
+    cy="60"
+    r={radius}
+    stroke="#F8BBD0" 
+    strokeWidth={strokeWidth}
+    fill="none"
+  />
+  <Circle
+    cx="60"
+    cy="60"
+    r={radius}
+    stroke="#FF4081" 
+    strokeWidth={strokeWidth}
+    fill="none"
+    strokeDasharray={circumference}
+    strokeDashoffset={circumference * (1 - quiz.progressPercentage / 100)}
+    strokeLinecap="round"
+  />
+</Svg>
     </View>
   ))}
 </ScrollView>
@@ -110,7 +110,7 @@ const ProgressBar = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    
   },
   backgroundImage: {
     flex: 1,
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 30,
     fontWeight: '700',
-    color: '#E8F0FF',
+    color: '#F8BBD0',
     textAlign: 'center',
     marginBottom: 20,
     textShadowColor: 'rgba(0, 0, 0, 0.8)',
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
     textShadowRadius: 4,
   },
   progressContainer: {
-    backgroundColor: '#6C81A8',
+    backgroundColor: '#4A148C',
     borderRadius: 15,
     padding: 20,
     marginBottom: 20,
@@ -145,20 +145,20 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 8,
     elevation: 8,
-    borderColor: '#FFF',
+    borderColor: '#F8BBD0',
     borderWidth: 2,
     alignItems: 'center',
   },
   text: {
-    fontSize: 20,
-    color: '#E8F0FF',
+    fontSize: 23,
+    color: '#F8BBD0',
     marginBottom: 10,
     fontWeight: '600',
     textAlign: 'center',
   },
   exitButton: {
     alignSelf: 'flex-start',
-    backgroundColor: '#6C81A8',
+    backgroundColor: '#F8BBD0',
     paddingHorizontal: 20,
     paddingVertical: 12,
     borderRadius: 20,
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.4,
     shadowRadius: 5,
-    borderColor: '#FFF',
+    borderColor: '#4A148C',
     borderWidth: 2,
   },
   exitButtonText: {

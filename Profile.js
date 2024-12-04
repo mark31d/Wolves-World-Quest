@@ -17,7 +17,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const { width, height } = Dimensions.get('window');
 const defaultProfilePhoto = require('./user_17740838.png');
-const background = require('./back.jpg');
+const background = require('./Background.png');
 
 const Profile = ({ navigation }) => {
   const [name, setName] = useState('');
@@ -99,7 +99,7 @@ const Profile = ({ navigation }) => {
             onChangeText={setName}
             placeholder="Enter your name"
             style={styles.nameInput}
-            placeholderTextColor="#333"
+            placeholderTextColor="#4A148C"
           />{/* Поле выбора уровня знаний */}
           <Text style={styles.label}>How much do you know about Wolves:</Text>
           <View style={styles.pickerContainer}>
@@ -107,7 +107,7 @@ const Profile = ({ navigation }) => {
               selectedValue={knowledgeLevel}
               onValueChange={(itemValue) => setKnowledgeLevel(itemValue)}
               style={styles.picker}
-              dropdownIconColor="#FFFFFF"
+              dropdownIconColor="#4A148C"
               mode="dropdown"
             >
               <Picker.Item label="Select Knowledge Level" value="" />
@@ -132,7 +132,7 @@ const Profile = ({ navigation }) => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: 'rgba(0, 0, 0, 0.2)',
   },
   background: {
     flex: 1,
@@ -151,34 +151,34 @@ const styles = StyleSheet.create({
     fontSize: width * 0.05,
     fontWeight: 'bold',
     marginBottom: 10,
-    color: '#FFFFFF',
+    color: '#4A148C',
     textAlign: 'center',
   },
   nameInput: {
     borderWidth: 1,
     padding: 16,
     borderRadius: 25,
-    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
     textAlign: 'center',
     width: '80%',
     fontSize: 20,
     marginBottom: 20,
     color: '#333',
-    borderColor: '#6c757d',
+    borderColor: '#4A148C',
   },
   pickerContainer: {
     height: 180,
     overflow: 'hidden',
     width: '80%',
     marginBottom: 20,
-    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
     borderRadius: 25,
-    borderColor: '#6c757d',
-    borderWidth: 1,
+    borderColor: '#4A148C',
+    borderWidth: 2,
     justifyContent: 'center',
   },
   picker: {
-    color: '#FFFFFF',
+    color: '#6C63FF',
     fontSize: 18,
     height: '100%',
     width: '100%',
@@ -186,13 +186,13 @@ const styles = StyleSheet.create({
   photoButton: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
     borderRadius: width * 0.5,
     width: width * 0.45,
     height: width * 0.45,
     marginBottom: height * 0.03,
     borderWidth: 1,
-    borderColor: '#6c757d',
+    borderColor: '#4A148C',
   },
   photoImage: {
     width: '90%',
@@ -200,7 +200,7 @@ const styles = StyleSheet.create({
     borderRadius: width * 0.5,
   },
   submitButton: {
-    backgroundColor: '#6C81A8',
+    backgroundColor: '#4A148C',
     padding: 20,
     borderRadius: 30,
     alignItems: 'center',
@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
   },
   submitButtonText: {
     fontSize: 20,
-    color: '#FFFFFF',
+    color: '#F8BBD0',
     fontWeight: 'bold',
   },
 });

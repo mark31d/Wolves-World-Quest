@@ -39,8 +39,8 @@ const LearnMoreScreen = ({ route, navigation }) => {
         const updatedPhotoAlbum = [...(localBreedInfo.photoAlbum || []), newPhotoUri];
         const updatedBreedInfo = { ...localBreedInfo, photoAlbum: updatedPhotoAlbum };
 
-        setLocalBreedInfo(updatedBreedInfo); // Локальное обновление
-        updateWolfData(updatedBreedInfo.name, updatedBreedInfo); // Сохранение изменений через контекст
+        setLocalBreedInfo(updatedBreedInfo); 
+        updateWolfData(updatedBreedInfo.name, updatedBreedInfo); 
       }
     });
   };
@@ -49,24 +49,24 @@ const LearnMoreScreen = ({ route, navigation }) => {
     try {
       const updatedData = {
         ...localBreedInfo,
-        name: localBreedInfo.name.trim(), // Убираем лишние пробелы
+        name: localBreedInfo.name.trim(), 
       };
-      setLocalBreedInfo(updatedData); // Обновляем локально
-      await updateWolfData(breed, updatedData); // Сохраняем изменения через контекст
+      setLocalBreedInfo(updatedData); 
+      await updateWolfData(breed, updatedData); 
       setIsEditing(false);
     } catch (error) {
       console.error('Error saving breed changes:', error);
     }
   };
   return (
-    <ImageBackground source={require('./back.jpg')} style={styles.backgroundImage}>
+    <ImageBackground source={require('./Background.png')} style={styles.backgroundImage}>
       <SafeAreaView style={styles.safeArea}>
         <ScrollView style={styles.contentContainer}>
           <TouchableOpacity style={styles.exitButton} onPress={() => navigation.goBack()}>
             <Text style={styles.exitButtonText}>✖️</Text>
           </TouchableOpacity>
 
-          {/* Горизонтальная прокрутка для изображений */}
+          
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
   {localBreedInfo.photoAlbum && localBreedInfo.photoAlbum.length > 0 ? (
     localBreedInfo.photoAlbum.map((uri, index) => (
@@ -127,7 +127,7 @@ const LearnMoreScreen = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    
   },
   backgroundImage: {
     flex: 1,
@@ -138,8 +138,7 @@ const styles = StyleSheet.create({
   },
   exitButton: {
     alignSelf: 'flex-start',
-    backgroundColor: '#6C81A8',
-    backgroundColor: '#6C81A8', 
+    backgroundColor: '#F8BBD0',   
     paddingHorizontal: 20,
     paddingVertical: 12,
     borderRadius: 20,
@@ -148,7 +147,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.4,
     shadowRadius: 5,
-    borderColor: '#FFF',
+    borderColor: '#4A148C',
     borderWidth: 2,
     marginBottom: 10,
   },
@@ -172,20 +171,21 @@ const styles = StyleSheet.create({
   breedName: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: 'white',
+    color: '#4A148C',
     marginVertical: 10,
   },
   nameInput: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: 'white',
+    color: '#4A148C',
     borderBottomWidth: 1,
     borderBottomColor: '#CCC',
     marginVertical: 10,
   },
   details: {
-    fontSize: 16,
-    color: 'white',
+    fontWeight:'bold',
+    fontSize: 17,
+    color: '#4A148C',
     marginVertical: 20,
   },
   detailsInput: {
@@ -196,26 +196,26 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   addPhotoButton: {
-    backgroundColor: '#6C81A8',
+    backgroundColor: '#4A148C',
     padding: 15,
     borderRadius: 10,
     alignItems: 'center',
     marginTop: 20,
   },
   addPhotoButtonText: {
-    color: '#FFF',
+    color: '#F8BBD0',
     fontWeight: 'bold',
     fontSize: 16,
   },
   editButton: {
-    backgroundColor: '#6C81A8',
+    backgroundColor: '#4A148C',
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 10,
     marginTop: 20,
   },
   editButtonText: {
-    color: '#FFF',
+    color: '#F8BBD0',
     fontSize: 16,
     fontWeight: 'bold',
     textAlign: 'center',

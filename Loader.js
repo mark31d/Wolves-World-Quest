@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'; 
-import { View, Animated, Text, StyleSheet, ImageBackground, Image, Dimensions } from 'react-native';
+import { View, Animated, Text, StyleSheet, ImageBackground, Dimensions } from 'react-native';
 
 const Loader = ({ onEnd }) => {
   const appearingAnim = useRef(new Animated.Value(0)).current; 
@@ -24,7 +24,7 @@ const Loader = ({ onEnd }) => {
 
   return (
     <ImageBackground
-      source={require('./back.jpg')} 
+      source={require('./Background.png')} 
       style={styles.backgroundImage}
     >
       <Animated.View
@@ -56,11 +56,11 @@ const Loader = ({ onEnd }) => {
 const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
-    resizeMode: 'cover', 
+    resizeMode: 'cover',
     justifyContent: 'center',
   },
   loaderContainer: {
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: 'rgba(0, 0, 0, 0.6)', // Сделали фон чуть более контрастным
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
@@ -70,13 +70,17 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     fontSize: 40,
-    color: 'white',
+    color: '#F8BBD0', 
+    textShadowColor: 'rgba(0, 0, 0, 0.8)', 
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 4,
     marginBottom: 10,
   },
   logoImage: {
     alignSelf: 'center',
     marginBottom: -60,
     borderRadius: 200,
+    
   },
 });
 

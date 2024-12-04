@@ -16,7 +16,7 @@ import { WolfDataContext } from './WolfDataContext';
 
 const { width, height } = Dimensions.get('window');
 const defaultProfilePhoto = require('./user_17740838.png'); 
-const background = require('./back.jpg'); 
+const background = require('./Background.png'); 
 
 const MainMenu = ({ navigation }) => {
   const [profilePhoto, setProfilePhoto] = useState(null); 
@@ -99,7 +99,7 @@ const MainMenu = ({ navigation }) => {
           <TextInput
             placeholder="Search for breeds..."
             style={styles.searchBar}
-            placeholderTextColor="#6C81A8"
+            placeholderTextColor="white"
             value={searchText}
             onChangeText={handleSearch}
           />
@@ -146,7 +146,7 @@ const MainMenu = ({ navigation }) => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      
   },
   background: {
     flex: 1,
@@ -157,14 +157,20 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     width: '100%',
     paddingHorizontal: 20,
+    marginTop: 10,
   },
   wolfButton: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#6C81A8',
+    backgroundColor: '#4A148C', // Глубокий фиолетовый
     borderRadius: width * 0.1,
     width: width * 0.2,
     height: width * 0.2,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    elevation: 8,
   },
   wolfImage: {
     width: '100%',
@@ -174,17 +180,22 @@ const styles = StyleSheet.create({
   settingsButton: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#6C81A8',
+    backgroundColor: '#4A148C', 
     borderRadius: width * 0.1,
     width: width * 0.2,
     height: width * 0.2,
-    borderColor: 'white',
+    borderColor: '#F8BBD0', 
     borderWidth: 2,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    elevation: 8,
   },
   buttonText: {
     fontSize: 14,
     fontWeight: 'bold',
-    color: '#FFFFFF',
+    color: '#FFFFFF', 
   },
   mainWolfImage: {
     zIndex: -1,
@@ -196,34 +207,45 @@ const styles = StyleSheet.create({
     borderRadius: 100,
   },
   quizButton: {
-    backgroundColor: '#6C81A8',
+    backgroundColor: '#4A148C', 
     padding: 15,
     borderRadius: 30,
     alignItems: 'center',
     width: '85%',
     marginBottom: 10,
-    borderColor: 'white',
+    borderColor: '#F8BBD0',
     borderWidth: 2,
     alignSelf: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    elevation: 8,
   },
   quizButtonText: {
     fontSize: 20,
-    color: '#FFFFFF',
+    color: '#FFFFFF', 
     fontWeight: 'bold',
   },
   searchBar: {
     borderWidth: 1,
     padding: 15,
     borderRadius: 30,
-    backgroundColor: 'rgba(240, 248, 255, 0.7)',
+    backgroundColor: '#4A148C',
+    
     textAlign: 'center',
     width: '85%',
     fontSize: 20,
     marginBottom: 10,
-    color: '#333',
-    borderColor: '#6C81A8',
+    color: '#4A148C', 
+    borderColor: '#F8BBD0', 
     borderWidth: 3,
     alignSelf: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+    elevation: 5,
   },
   feed: {
     flex: 1,
@@ -235,10 +257,15 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     alignItems: 'center',
     borderWidth: 2,
-    borderColor: 'white',
+    borderColor: '#F8BBD0', 
     borderRadius: 10,
     padding: 10,
-    backgroundColor: '#6C81A8',
+    backgroundColor: '#4A148C',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    elevation: 5,
   },
   feedImage: {
     width: 80,
@@ -252,33 +279,44 @@ const styles = StyleSheet.create({
   feedTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#E8F0FF',
+    color: '#FFFFFF', 
   },
   learnMoreButton: {
-    backgroundColor: 'rgba(240, 248, 255, 0.7)',
+    backgroundColor: '#F8BBD0', 
     marginTop: 5,
     padding: 10,
     borderRadius: 5,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 3,
   },
   learnMoreText: {
     fontSize: 15,
     fontWeight: 'bold',
-    color: '#6C81A8',
+    color: '#4A148C', 
   },
   actionButton: {
     padding: 15,
-    backgroundColor: '#6C81A8',
+    backgroundColor: '#4A148C', 
     alignItems: 'center',
     borderRadius: 30,
     width: '85%',
     alignSelf: 'center',
     marginVertical: 10,
-    borderColor: 'white',
+    borderColor: '#F8BBD0', 
     borderWidth: 2,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    elevation: 8,
   },
-  actionButtonText: {fontSize: 16,
+  actionButtonText: {
+    fontSize: 16,
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#FFFFFF', // Чистый белый
   },
 });
 

@@ -25,7 +25,7 @@ const SettingsScreen = ({ navigation }) => {
   };
 
   return (
-    <ImageBackground source={require('./back.jpg')} style={styles.backgroundImage}>
+    <ImageBackground source={require('./Background.png')} style={styles.backgroundImage}>
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.container}>
           <Text style={styles.title}>Settings</Text>
@@ -34,10 +34,11 @@ const SettingsScreen = ({ navigation }) => {
           <View style={styles.setting}>
             <Text style={styles.settingText}>Vibration</Text>
             <Switch
-              value={vibrationOn}
-              onValueChange={setVibrationOn}
-              style={styles.switch}
-            />
+  value={vibrationOn}
+  onValueChange={setVibrationOn}
+  trackColor={{ false: '#D32F2F', true: '#388E3C' }}
+  thumbColor={vibrationOn ? '#8BC34A' : '#F8BBD0'}
+/>
           </View>
 
         
@@ -57,10 +58,11 @@ const SettingsScreen = ({ navigation }) => {
           <View style={styles.setting}>
             <Text style={styles.settingText}>Turn Music On/Off</Text>
             <Switch
-              value={isMusicPlaying}
-              onValueChange={setIsMusicPlaying}
-              style={styles.switch}
-            />
+  value={isMusicPlaying}
+  onValueChange={setIsMusicPlaying}
+  trackColor={{ false: '#D32F2F', true: '#388E3C' }}
+  thumbColor={isMusicPlaying ? '#8BC34A' : '#F8BBD0'}
+/>
           </View>
 
           
@@ -75,7 +77,7 @@ const SettingsScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    
   },
   backgroundImage: {
     flex: 1,
@@ -89,7 +91,7 @@ const styles = StyleSheet.create({
     fontSize: width * 0.07,
     fontWeight: 'bold',
     marginBottom: height * 0.03,
-    color: 'white', 
+    color: '#4A148C', 
     textAlign: 'center',
   },
   setting: {
@@ -99,8 +101,8 @@ const styles = StyleSheet.create({
     marginVertical: height * 0.02,
     padding: height * 0.025,
     borderRadius: 20,
-    backgroundColor: '#6C81A8', 
-    borderColor: 'white', 
+    backgroundColor: '#4A148C', 
+    borderColor: '#F8BBD0', 
     borderWidth: 2,
     opacity:0.9,
   },
@@ -118,7 +120,7 @@ const styles = StyleSheet.create({
     height: height * 0.06,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: '#F8BBD0',
     borderRadius: 20,
     marginHorizontal: width * 0.03,
     
@@ -128,17 +130,11 @@ const styles = StyleSheet.create({
     color: '#333',
     fontWeight: 'bold',
   },
-  switch: {
-    trackColor: { 
-      false: '#FF6347', 
-      true: '#5A9BD5',  
-    },
-    thumbColor: '#FFFFFF',
-  },
+ 
   exitButton: {
     marginTop: height * 0.05,
-    backgroundColor: '#6C81A8', 
-    borderRadius: 25,
+    backgroundColor: '#4A148C', 
+    borderRadius: 50,
     paddingVertical: height * 0.025,
     paddingHorizontal: width * 0.2,
     alignSelf: 'center',
@@ -148,8 +144,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 5,
     elevation: 5,
-    borderWidth:1,
-    borderColor:'white',
+    borderWidth:1.5,
+    borderColor:'#F8BBD0',
   },
   exitButtonText: {
     fontWeight: 'bold',

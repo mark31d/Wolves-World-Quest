@@ -18,7 +18,6 @@ import { WolfDataProvider } from './WolfDataContext';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-
 const tabIcons = {
   Profile: require('./wolfuser.png'),
   MainMenu: require('./animals.png'),
@@ -26,23 +25,22 @@ const tabIcons = {
   Progress: require('./bar.png'),
 };
 
-
 const TabScreens = () => {
   return (
     <Tab.Navigator
       initialRouteName="Profile"
       screenOptions={({ route }) => ({
         headerShown: false,
-        tabBarStyle: { backgroundColor: '#6C81A8' },
-        tabBarActiveTintColor: 'white',
-        tabBarInactiveTintColor: '#B0C4DE',
+        tabBarStyle: { backgroundColor: '#4A148C' }, // Глубокий фиолетовый
+        tabBarActiveTintColor: '#FFFFFF', // Белый
+        tabBarInactiveTintColor: '#F8BBD0', // Пастельный розовый
         tabBarIcon: ({ focused }) => (
           <Image
             source={tabIcons[route.name]}
             style={{
               width: 24,
               height: 24,
-              tintColor: focused ? 'white' : '#B0C4DE',
+              tintColor: focused ? '#FFFFFF' : '#F8BBD0', // Активный: белый, неактивный: пастельный розовый
             }}
           />
         ),
@@ -55,7 +53,6 @@ const TabScreens = () => {
     </Tab.Navigator>
   );
 };
-
 
 const App = () => {
   const [louderIsEnded, setLouderIsEnded] = useState(false);

@@ -53,7 +53,7 @@ const AddArticle = ({ navigation }) => {
   };
 
   return (
-    <ImageBackground source={require('./back.jpg')} style={styles.backgroundImage}>
+    <ImageBackground source={require('./Background.png')} style={styles.backgroundImage}>
       <View style={styles.container}>
         <TouchableOpacity style={styles.exitButton} onPress={() => navigation.goBack()}>
           <Text style={styles.exitButtonText}>✖️</Text>
@@ -64,7 +64,7 @@ const AddArticle = ({ navigation }) => {
           style={styles.input}
           value={name}
           onChangeText={setName}
-          placeholderTextColor="white"
+          placeholderTextColor="#F8BBD0"
         />
         <TextInput
           placeholder="Enter Wolf Details"
@@ -72,7 +72,7 @@ const AddArticle = ({ navigation }) => {
           value={details}
           onChangeText={setDetails}
           multiline
-          placeholderTextColor="white"
+          placeholderTextColor="#F8BBD0"
         />
         <TouchableOpacity style={styles.imagePicker} onPress={handleImagePick}>
           <Text style={styles.imagePickerText}>
@@ -95,17 +95,17 @@ const AddArticle = ({ navigation }) => {
     flex: 1,
     padding: 20,
     justifyContent: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+ 
   },
   exitButton: {
     position: 'absolute',
     top: 60,
     left: 20,
-    backgroundColor: '#6C81A8',
+    backgroundColor: '#F8BBD0',
     paddingHorizontal: 20,
     paddingVertical: 12,
     borderRadius: 20,
-    borderColor: '#FFF',
+    borderColor: '#4A148C',
     borderWidth: 2,
     zIndex: 10,
   },
@@ -120,25 +120,27 @@ const AddArticle = ({ navigation }) => {
     fontWeight: 'bold',
     marginBottom: 30,
     textAlign: 'center',
-    color: 'white',
+    color: '#4A148C',
   },
   input: {
-    color: 'white',
-    borderWidth: 1,
-    borderColor: 'white',
+    color: '#F8BBD0',
+  backgroundColor:'#4A148C',
+  opacity:0.9,
+    borderWidth: 2,
+    borderColor: '#F8BBD0',
     padding: 10,
     borderRadius: 8,
     marginBottom: 20,
   },
   imagePicker: {
-    backgroundColor: '#6C81A8',
+    backgroundColor: '#4A148C',
     padding: 15,
     borderRadius: 8,
     marginBottom: 20,
     alignItems: 'center',
   },
   imagePickerText: {
-    color: 'white',
+    color: '#F8BBD0',
     fontWeight: 'bold',
   },
   previewImage: {
@@ -150,13 +152,13 @@ const AddArticle = ({ navigation }) => {
     borderRadius: 10,
   },
   saveButton: {
-    backgroundColor: '#6C81A8',
+    backgroundColor: '#4A148C',
     padding: 15,
     borderRadius: 8,
     alignItems: 'center',
   },
   saveButtonText: {
-    color: '#FFF',
+    color: '#F8BBD0',
     fontWeight: 'bold',
   },
 });
